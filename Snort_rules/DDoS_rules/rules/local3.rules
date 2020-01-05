@@ -1,0 +1,8 @@
+
+alert udp $EXTERNAL_NET any -> $HOME_NET 31335 (msg:"DDOS Trin00 Daemon to Master message detected"; content:"l44"; reference:arachnids,186; classtype:attempted-dos; sid:231; rev:3;)
+alert udp $EXTERNAL_NET any -> $HOME_NET 31335 (msg:"DDOS Trin00 Daemon to Master *HELLO* message detected"; content:"*HELLO*"; reference:arachnids,185; reference:url,www.sans.org/newlook/resources/IDFAQ/trinoo.htm; classtype:attempted-dos; sid:232; rev:5;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET 27665 (msg:"DDOS Trin00 Attacker to Master default startup password"; flow:established,to_server; content:"betaalmostdone"; reference:arachnids,197; classtype:attempted-dos; sid:233; rev:3;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET 27665 (msg:"DDOS Trin00 Attacker to Master default password"; flow:established,to_server; content:"gOrave"; classtype:attempted-dos; sid:234; rev:2;)
+alert tcp $EXTERNAL_NET any -> $HOME_NET 27665 (msg:"DDOS Trin00 Attacker to Master default mdie password"; flow:established,to_server; content:"killme"; classtype:bad-unknown; sid:235; rev:2;)
+alert udp $EXTERNAL_NET any -> $HOME_NET 27444 (msg:"DDOS Trin00 Master to Daemon default password attempt"; content:"l44adsl"; reference:arachnids,197; classtype:attempted-dos; sid:237; rev:2;)
+alert icmp $HOME_NET any -> $EXTERNAL_NET any (msg:"DDOS TFN server response"; icmp_id:123; icmp_seq:0; itype:0; content:"shell bound to port"; reference:arachnids,182; classtype:attempted-dos; sid:238; rev:6;)

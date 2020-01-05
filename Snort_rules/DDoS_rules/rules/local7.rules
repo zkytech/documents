@@ -1,0 +1,1 @@
+# alert icmp any any ‐> any any (msg:"Smurf attack detected"; itype:8; sid:1000005; rev:1;)
